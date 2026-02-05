@@ -1,2 +1,165 @@
 # MAIL
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorry My Love</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+        position: relative;
+        width: 300px;
+        height: 200px;
+        cursor: pointer;
+    }
+
+    .envelope {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        border-radius: 6px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        overflow: hidden;
+    }
+
+    .flap {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ff6f91;
+        clip-path: polygon(0 0, 50% 60%, 100% 0);
+        transform-origin: top;
+        transition: transform 1s ease;
+        z-index: 3;
+    }
+
+    .letter {
+        position: absolute;
+        top: 100%;
+        left: 10%;
+        width: 80%;
+        height: 85%;
+        background: #fff;
+        border-radius: 5px;
+        padding: 12px;
+        box-sizing: border-box;
+        text-align: center;
+        transition: top 1s ease;
+        z-index: 2;
+        overflow-y: auto;
+    }
+
+    .letter h2 {
+        color: #ff4d6d;
+        margin-bottom: 8px;
+        font-size: 14px;
+    }
+
+    .letter p {
+        font-size: 6px;
+        color: #444;
+        line-height: 1.4;
+    }
+
+    .single-button {
+        margin-top: 12px;
+        display: none;
+    }
+
+    .single-button button {
+        padding: 8px 18px;
+        border: none;
+        border-radius: 25px;
+        background: #ff4d6d;
+        color: #fff;
+        font-size: 10px;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .single-button button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(255, 77, 109, 0.5);
+    }
+
+    .open .flap {
+        transform: rotateX(180deg);
+    }
+
+    .open .letter {
+        top: 1%;
+    }
+
+    .open .single-button {
+        display: block;
+    }
+
+    /* Outside text */
+    .hint {
+        position: absolute;
+        bottom: -45px;
+        width: 100%;
+        text-align: center;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 1px;
+        opacity: 0.95;
+    }
+</style>
+</head>
+<body>
+
+<div class="container" onclick="openMail()">
+    <div class="envelope">
+        <div class="flap"></div>
+        <div class="letter">
+            <h2>Hi Love ❤️</h2>
+            <p>
+                I didn't fall for you because i needed a relationship. 
+                I fell for you because for the first time,
+                in such a long time, I felt true love,
+                at peace, like I was home.
+                I fell for your smile, the way you made my heart smile 
+                and the way you make me feel wanted.
+                I never meant to hurt you.  
+                Please forgive me.  
+                You mean everything to me,  
+                and I promise to do better - Chan 💖
+            </p>
+
+            <div class="single-button">
+                <button onclick="buttonClick(event)">CLICK THIS BUTTON</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Outside mail text -->
+    <div class="hint">Please click the mail 💌</div>
+</div>
+
+<script>
+    function openMail() {
+        document.querySelector('.container').classList.add('open');
+    }
+
+    function buttonClick(event) {
+        event.stopPropagation();
+        alert("Thank you for being there for me ❤️");
+    }
+</script>
+
+</body>
+</html>
